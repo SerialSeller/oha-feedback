@@ -93,7 +93,7 @@ After connecting:
 
 For teammates using phones, desktops, or hosted AI clients, the recommended shared path is the managed OHA intake bridge described in [INTAKE_BRIDGE.md](INTAKE_BRIDGE.md). It is a remote service behind this skill, not a script teammates install or run. The maintainer configures it once with Cloudflare Worker secrets and Composio Custom MCP; every teammate then uses their own Composio/Trello connection.
 
-The bridge must receive actual image bytes. An AI client that forwards only `/Users/.../screenshot.png`, a filename, or a URL is not compatible with native evidence upload. Report `Blocked by setup` for that client instead of trying the Trello action. Never ask a teammate to encode a screenshot manually.
+The bridge must receive actual image bytes. An AI client that forwards only `/Users/.../screenshot.png`, a filename, or a URL is not compatible with native evidence upload. Report `Blocked by setup` for that client instead of trying the Trello action. Never ask a teammate to encode a screenshot manually. The bridge routes the request using the exact Trello `ca_...` connected-account ID configured for that teammate; it never falls back to a shared account.
 
 When executing uploads through a Composio SDK, inspect the current Trello tool
 schema first. Automatic handling is valid only if the attachment field is

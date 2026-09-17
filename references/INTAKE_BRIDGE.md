@@ -8,7 +8,7 @@ The managed bridge is the no-script path for teammates who send feedback from a 
 - rejects local paths, URLs, mismatched image signatures, and suspiciously small files;
 - stages bytes through the Composio Files API;
 - passes `{name, mimetype, s3key}` to `TRELLO_ADD_CARDS_ATTACHMENTS_BY_ID_CARD`;
-- maps each request to the requesting teammate's own Composio user and Trello connection;
+- maps each request to the requesting teammate's exact Composio Trello connected account;
 - verifies filename, MIME type, exact byte size, Trello URL, and non-empty image previews;
 - inserts the verified Trello attachment URL as a Markdown image directly below `Screenshot / clip`;
 - retries only a failed attachment on the existing card and never recreates the card;
@@ -28,9 +28,9 @@ The endpoint is not ready for teammates until the one-time owner setup below is 
 
 The bridge owner completes this once. Teammates only connect their own Trello account and use the skill.
 
-1. In Cloudflare Worker secrets, set `COMPOSIO_API_KEY` to the private Composio project key. Set `TRELLO_LIST_ID` to the verified `FEEDBACK & TESTING` list ID and set `OHA_USER_TOKENS_JSON` to a private mapping from one opaque bridge token to each teammate's Composio `user_id`.
+1. In Cloudflare Worker secrets, set `COMPOSIO_API_KEY` to the private Composio project key. Set `TRELLO_LIST_ID` to the verified `FEEDBACK & TESTING` list ID and set `OHA_USER_TOKENS_JSON` to a private mapping from one opaque bridge token to each teammate's own Composio Trello connected-account ID, such as `{ "private-token-for-alice": "ca_trello_alice" }`.
 2. In the same Composio project, register the public MCP endpoint as a Custom MCP toolkit and sync its tools. Custom MCP is currently an experimental, API-only Composio feature; use its current official lifecycle rather than assuming the dashboard has a registration button.
-3. Create the Custom MCP auth configuration with automatic user matching enabled. Each teammate must have an active connection for the Custom MCP toolkit under their own Composio user ID, plus an active Trello connection in that same Composio project and user ID.
+3. Create the Custom MCP auth configuration with automatic account matching enabled. Each teammate must have an active Custom MCP connection containing their private bridge token, plus an active Trello connection in that same Composio project. Record only the Trello `ca_...` ID in the private Worker mapping.
 4. Configure the approved AI clients to use the synced Custom MCP toolkit and this skill. A client must be able to forward the attached image's real bytes to `OHA_CREATE_FEEDBACK`. If it exposes only a filename or local path, the skill must stop as `Blocked by setup`.
 5. Test on the approved existing test card only. Confirm in Trello that the image itself opens and previews, and record the attachment filename, MIME type, and exact byte size. Do not touch the eight existing live cards during the first test.
 
