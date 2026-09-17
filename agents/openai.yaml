@@ -1,0 +1,15 @@
+interface:
+  display_name: "OHA Feedback"
+  short_description: "Turn OHA screenshots into structured feedback"
+  default_prompt: "Use $oha-feedback to turn these screenshots and notes into OHA feedback."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "composio"
+      description: "Composio access to the teammate's authorized Trello and Linear accounts"
+      transport: "streamable_http"
+      url: "https://connect.composio.dev/mcp"
+
+policy:
+  allow_implicit_invocation: true
