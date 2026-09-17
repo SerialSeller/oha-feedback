@@ -23,7 +23,7 @@ Changes to these areas require OHA team review:
 - One independent problem equals one issue.
 - The official feedback template and field order.
 - Verified Trello and Linear destinations.
-- Exact-label handling.
+- No Trello labels.
 - No invented context.
 - Evidence-to-issue mapping.
 - External-write and uncertain-result safety.

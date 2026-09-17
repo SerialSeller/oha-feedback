@@ -9,7 +9,7 @@ It gives Claude, Codex, Gemini, ChatGPT, and other compatible agents one shared 
 - Splits independent problems into separate issues.
 - Uses the official OHA Feedback Template v1.
 - Maps the right evidence to the right issue and attaches every screenshot or clip to the matching card or issue.
-- Selects an exact existing Trello label without inventing one.
+- Creates feedback without Trello labels.
 - Creates only in verified OHA destinations enabled by the team.
 - Uses `Not available` for missing context.
 - Verifies attachments after creation and returns the created Trello/Linear links.
@@ -40,7 +40,6 @@ oha-feedback/
 └── references/
     ├── TEAM_CONFIG.md               Team-maintained destinations
     ├── FEEDBACK_TEMPLATE.md         Protected official template
-    ├── LABEL_RULES.md               Team label policy
     ├── USER_PREFERENCES.md          Per-teammate editable defaults
     ├── CLIENT_ADAPTERS.md           Claude/Codex/Gemini/ChatGPT notes
     └── EXAMPLES.md                  Splitting and evidence examples
@@ -79,7 +78,6 @@ They may also adapt installation notes for their AI client. These changes must n
 Only after checking the live OHA tools:
 
 - The Linear team/project in `TEAM_CONFIG.md`.
-- Exact Trello label names or IDs in `LABEL_RULES.md`.
 - A destination rename or an approved template revision.
 
 Do not commit API keys, OAuth tokens, connection IDs, private session links, or customer data into this package.
@@ -88,7 +86,7 @@ Do not commit API keys, OAuth tokens, connection IDs, private session links, or 
 
 Share the entire folder or its ZIP. Each teammate installs their own copy and connects their own Composio account. When distributing a new canonical version, preserve each teammate's `USER_PREFERENCES.md` or let them reapply those small choices.
 
-Teammates can edit their installed copy. For a fix that should help everyone, fork the GitHub repository and open a pull request. Personal preferences belong in `references/USER_PREFERENCES.md`; changes to canonical rules, destinations, labels, or the official template should be reviewed by the OHA team.
+Teammates can edit their installed copy. For a fix that should help everyone, fork the GitHub repository and open a pull request. Personal preferences belong in `references/USER_PREFERENCES.md`; changes to canonical rules, destinations, or the official template should be reviewed by the OHA team.
 
 ## Calling the skill
 
@@ -108,11 +106,11 @@ Explicit invocation is optional. The description is intentionally specific, so s
 - Claude Code uses the repository-installed skill. Claude.ai supports custom skill ZIP uploads on eligible plans, not direct GitHub URL installation.
 - Gemini CLI supports installation directly from the GitHub URL.
 
-Before a team rollout, test one draft and one explicitly approved test card. Verify the board/list, exact label, attachment, and returned link. Delete or archive the test card only through the team's normal process.
+Before a team rollout, test one draft and one explicitly approved test card. Verify the board/list, native attachment, and returned link. Delete or archive the test card only through the team's normal process.
 
 ## Version
 
-Package: `1.0.1`
+Package: `1.0.2`
 
 Default team configuration:
 

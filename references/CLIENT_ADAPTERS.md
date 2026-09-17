@@ -85,9 +85,10 @@ Each teammate connects their own account and authorizes only the OHA Trello/Line
 After connecting:
 
 1. Confirm the account can see `OOOHA! - WORKSPACE` and `FEEDBACK & TESTING`.
-2. List the board's exact existing labels.
-3. Keep Linear disabled until the real OHA team is visible and recorded in `TEAM_CONFIG.md`.
-4. Run a draft-only example before any external write.
-5. Create a test card only with explicit approval, then verify its label, evidence, and returned URL.
+2. Keep Linear disabled until the real OHA team is visible and recorded in `TEAM_CONFIG.md`.
+3. Run a draft-only example before any external write.
+4. Create a test card only with explicit approval, then verify its native file attachment and returned URL.
+
+When executing uploads through a Composio SDK, enable its approved automatic file handling and allowlist the evidence directory, or explicitly stage the bytes with the Composio Files API and pass the returned FileUploadable reference. Do not pass a local path as plain text to a hosted MCP attachment action.
 
 Never place Composio keys, OAuth tokens, connected-account IDs, or personal credentials in this package.

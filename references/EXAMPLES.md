@@ -8,8 +8,8 @@ Input:
 
 Output split:
 
-1. Visual hierarchy issue for the back button. Attach screenshot 1. Classify against the exact UI/Design label available on the board.
-2. Functional Continue-button issue. Attach screenshot 2. Classify against the exact Bug/Development label available on the board.
+1. Visual hierarchy issue for the back button. Attach screenshot 1.
+2. Functional Continue-button issue. Attach screenshot 2.
 
 Do not combine them merely because they came in one message.
 
@@ -48,7 +48,6 @@ Use the visible screen name if it is legible. If device, OS, build, reproduction
 Issue 1 — Created
 [UI] Back button has insufficient visual hierarchy
 Trello: https://trello.com/c/...
-Label: <exact confirmed board label>
 Evidence: screenshot-1.png attached and verified
 
 Issue 2 — Blocked by setup

@@ -6,7 +6,6 @@ This is the safe place for each teammate to customize how the skill works. Editi
 - Confirmation policy: `Preview before external creation`
 - Final response detail: `Concise`
 - Response language: `Match the user's language`
-- Trello labels per card: `One narrowest matching label`
 - Evidence grouping: `Group multiple files only when they show the same problem`
 
 Allowed destination values after team configuration:
