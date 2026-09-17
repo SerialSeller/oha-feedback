@@ -8,8 +8,8 @@ Input:
 
 Output split:
 
-1. Visual hierarchy issue for the back button. Attach screenshot 1.
-2. Functional Continue-button issue. Attach screenshot 2.
+1. Visual hierarchy issue for the back button. Map screenshot 1 as evidence; report it as not uploaded yet.
+2. Functional Continue-button issue. Map screenshot 2 as evidence; report it as not uploaded yet.
 
 Do not combine them merely because they came in one message.
 
@@ -32,7 +32,7 @@ Input:
 
 Output split:
 
-1. One data-persistence issue. Attach all three screenshots in the order that demonstrates the flow.
+1. One data-persistence issue. Map all three screenshots in the order that demonstrates the flow, and report them as not uploaded yet.
 
 ## Missing context
 
@@ -48,11 +48,11 @@ Use the visible screen name if it is legible. If device, OS, build, reproduction
 Issue 1 — Created
 [UI] Back button has insufficient visual hierarchy
 Trello: https://trello.com/c/...
-Evidence: screenshot-1.png attached and verified
+Evidence: screenshot-1.png — not uploaded yet (current limitation)
 
 Issue 2 — Blocked by setup
 [Bug] Continue does not respond after team selection
-Linear: production team is not configured
+Linear: the requested team is not visible in this Composio account
 ```
 
 Report only states confirmed by the destination.

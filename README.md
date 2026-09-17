@@ -8,11 +8,11 @@ It gives Claude, Codex, Gemini, ChatGPT, and other compatible agents one shared 
 
 - Splits independent problems into separate issues.
 - Uses the official OHA Feedback Template v1.
-- Maps the right evidence to the right issue and attaches every screenshot or clip to the matching card or issue.
+- Maps the right evidence to the right issue. Native screenshot and clip upload is a known pending limitation; see [Evidence-upload limitation](#evidence-upload-limitation).
 - Creates feedback without Trello labels.
 - Creates only in verified OHA destinations enabled by the team.
 - Uses `Not available` for missing context.
-- Verifies attachments after creation and returns the created Trello/Linear links.
+- Verifies the created destination and returns its Trello/Linear link with an honest evidence status.
 
 ## Workflow
 
@@ -23,11 +23,9 @@ Detect independent problems
           ↓
 Build one structured report per problem
           ↓
-Create in Trello and/or Linear through Composio
+Create in the teammate's chosen destination through Composio
           ↓
-Attach the matching evidence and verify it
-          ↓
-Return the created links
+Return created links and clearly mark evidence as not uploaded yet
 ```
 
 ## Package layout
@@ -47,40 +45,41 @@ oha-feedback/
 
 ## Start using it
 
-1. Install the repository using the instructions in `references/CLIENT_ADAPTERS.md`:
+1. Create a Composio account and connect the OHA **Trello** and/or **Linear** account you already use. Connect whichever destinations you want the skill to use.
+
+2. Install the repository using the instructions in `references/CLIENT_ADAPTERS.md`:
 
    ```text
    https://github.com/SerialSeller/oha-feedback
    ```
-2. Connect Composio in that AI client and authorize the Trello and/or Linear account you use for OHA.
 3. Review `references/USER_PREFERENCES.md`. Teammates may change those preferences freely.
 4. Ask the agent for a draft-only test:
 
    > Use the OHA Feedback skill. Draft feedback from these screenshots but do not create anything yet.
 
-5. After the preview is correct, ask it to create the cards in the configured destination.
+5. After the preview is correct, ask it to create the cards or issues in the destination you choose.
 
-The repository's safe default is Trello only. A team maintainer enables Linear after recording the verified OHA Linear destination in `TEAM_CONFIG.md`.
+The shared starting destination is `OOOHA! - WORKSPACE` → `FEEDBACK & TESTING` in Trello. A teammate can instead choose another accessible Trello list, a Linear team/project, both destinations, or ask the agent to choose per report.
+
+## Evidence-upload limitation
+
+For now, screenshots and clips are input for the agent's analysis only. They are not uploaded to the Trello card or Linear issue, including as a link or embedded image in the description. The agent should create the structured feedback, return the card or issue link, and label the evidence result as **not uploaded yet**.
+
+If native evidence must be available on a particular card today, attach it manually after the card is created. Do not treat a filename written in the description as an uploaded attachment.
 
 ## What teammates may customize
 
-Teammates may edit `references/USER_PREFERENCES.md` to choose:
+Teammates may edit `references/USER_PREFERENCES.md` or their own copy of the skill to choose:
 
-- Trello only, Linear only, or both, when those destinations are configured.
+- Trello only, Linear only, both, or a destination chosen per report.
+- Their own default Trello board/list or Linear team/project.
 - Preview first or immediate creation.
 - Concise or detailed final responses.
 - Their preferred default language.
 
-They may also adapt installation notes for their AI client. These changes must not alter the canonical rules in `SKILL.md` or the official field order in `FEEDBACK_TEMPLATE.md`.
+They may also adapt installation notes, workflow wording, and the report template for their own workflow. The shared defaults keep issue splitting, evidence mapping, duplicate checks, and honest result reporting consistent; teammates can keep or adapt them in their own copy.
 
-## What a team maintainer updates
-
-Only after checking the live OHA tools:
-
-- The Linear team/project in `TEAM_CONFIG.md`.
-- A destination rename or an approved template revision.
-
-Do not commit API keys, OAuth tokens, connection IDs, private session links, or customer data into this package.
+Do not commit API keys, OAuth tokens, connection IDs, private session links, or customer data into a shared copy of this package.
 
 ## Sharing and updates
 
@@ -106,13 +105,13 @@ Explicit invocation is optional. The description is intentionally specific, so s
 - Claude Code uses the repository-installed skill. Claude.ai supports custom skill ZIP uploads on eligible plans, not direct GitHub URL installation.
 - Gemini CLI supports installation directly from the GitHub URL.
 
-Before a team rollout, test one draft and one explicitly approved test card. Verify the board/list, native attachment, and returned link. Delete or archive the test card only through the team's normal process.
+Before a team rollout, test one draft and one explicitly approved test card. Verify the board/list and returned link; the evidence result should explicitly say that upload is not available yet. Delete or archive the test card only through the team's normal process.
 
 ## Version
 
-Package: `1.0.2`
+Package: `1.0.3`
 
 Default team configuration:
 
 - Trello: `OOOHA! - WORKSPACE` → `FEEDBACK & TESTING`
-- Linear: disabled until the official OHA team/project is configured
+- Linear: available whenever the teammate connects and chooses an accessible Linear destination

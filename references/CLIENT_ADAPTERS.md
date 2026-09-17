@@ -74,9 +74,9 @@ During development, Gemini CLI can link the folder with `gemini skills link /abs
 
 If the agent supports the open Agent Skills folder format, install the whole folder in its documented skills directory. If it supports only persistent instructions, load `SKILL.md` as the main instruction and make every file under `references/` available alongside it. Do not paste only the workflow while omitting the template or team configuration.
 
-## Connect Composio
+## Create and connect Composio
 
-Each teammate connects their own account and authorizes only the OHA Trello/Linear access they already have.
+Before installing or using the skill, each teammate creates their own Composio account and authorizes the OHA Trello and/or Linear access they already have. They connect whichever destinations they want to use, and can add another accessible connection later.
 
 - Codex or Claude Code: Composio's native agent plugin/CLI path is the shortest setup when available.
 - Any MCP-compatible client: connect Composio Connect at `https://connect.composio.dev/mcp`.
@@ -84,11 +84,9 @@ Each teammate connects their own account and authorizes only the OHA Trello/Line
 
 After connecting:
 
-1. Confirm the account can see `OOOHA! - WORKSPACE` and `FEEDBACK & TESTING`.
-2. Keep Linear disabled until the real OHA team is visible and recorded in `TEAM_CONFIG.md`.
+1. Confirm the account can see the Trello board/list or Linear team/project the teammate wants to use. The shared Trello default is `OOOHA! - WORKSPACE` → `FEEDBACK & TESTING`.
+2. Save a personal default destination in `USER_PREFERENCES.md`, or ask the agent to ask every time.
 3. Run a draft-only example before any external write.
-4. Create a test card only with explicit approval, then verify its native file attachment and returned URL.
-
-When executing uploads through a Composio SDK, enable its approved automatic file handling and allowlist the evidence directory, or explicitly stage the bytes with the Composio Files API and pass the returned FileUploadable reference. Do not pass a local path as plain text to a hosted MCP attachment action.
+4. Create a test card or issue only with explicit approval, then verify its destination and returned URL. Native screenshot/clip upload is not available in the current release and must be reported as `Not uploaded yet`.
 
 Never place Composio keys, OAuth tokens, connected-account IDs, or personal credentials in this package.

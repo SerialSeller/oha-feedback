@@ -1,10 +1,10 @@
 # OHA Team Configuration
 
-This file contains shared destinations, not personal preferences. A team maintainer may edit it only after verifying the current names and IDs through the connected OHA accounts.
+This file provides shared starting destinations. A teammate may override these in `USER_PREFERENCES.md` or specify a different accessible destination in chat.
 
 ## Trello
 
-- Enabled: `yes`
+- Shared default: `yes`
 - Workspace/board: `OOOHA! - WORKSPACE`
 - List: `FEEDBACK & TESTING`
 - Board ID: `RESOLVE THROUGH COMPOSIO`
@@ -14,23 +14,20 @@ Resolve the current IDs from the exact names before every write. Never fall back
 
 ## Linear
 
-- Enabled: `no`
-- Workspace/team: `NOT CONFIGURED`
-- Project: `NOT CONFIGURED`
-- Team ID: `NOT CONFIGURED`
-- Project ID: `NOT CONFIGURED`
+- Available: `yes — when the teammate connects Linear in Composio`
+- Workspace/team: `CHOSEN BY THE TEAMMATE THROUGH COMPOSIO`
+- Project: `CHOSEN BY THE TEAMMATE THROUGH COMPOSIO`
+- Team ID: `RESOLVE THROUGH COMPOSIO`
+- Project ID: `RESOLVE THROUGH COMPOSIO`
 
-`Oha test` was used only for an earlier integration test. It is not the production OHA destination. Enable Linear only after the teammate can see the real OHA team and a maintainer records the verified destination here.
+No single Linear workspace, team, or project is hardcoded. A teammate with access can choose the exact Linear destination they want, and the agent resolves it through that teammate's Composio connection before creating an issue.
 
 ## Evidence handling
 
-- Evidence attachment is required for every screenshot or clip mapped to an issue.
-- Trello: stage the actual file bytes for upload, call the attachment operation with the resulting FileUploadable value, then read the card's attachment list and verify the filename, non-trivial byte count, and image preview are present.
-- Linear: use the prepare-upload → raw-byte upload → create-attachment sequence, then read the issue and verify the attachment is present.
-- If direct upload is unavailable, ask before placing the file in an approved shared store and attaching its access-controlled URL.
-- Never upload evidence to Google Drive or another third party silently.
-- Never treat a filename written in the description as a successful attachment.
+- **Current limitation:** the shareable skill does not upload screenshot or clip files to Trello or Linear yet. The agent may analyze the files, but must report each one as `Not uploaded yet` after creating the destination item.
+- Do not place evidence in Google Drive or another third party silently, and do not use a description filename, local path, thumbnail analysis, or linked cloud file as a substitute for a native attachment.
+- When native upload support is restored, update this section with the verified Trello and Linear upload-and-readback flows before enabling attachment claims.
 
 ## Destination safety
 
-If a configured name resolves to multiple targets, stop and ask the user to choose. If it resolves to none, report `Blocked by setup`. Do not create a replacement board, list, team, or project.
+If a requested name resolves to multiple targets, ask the teammate to choose. If it resolves to none, explain that the destination is not available through their connected account. Do not create a replacement board, list, team, or project unless the teammate explicitly asks for one.

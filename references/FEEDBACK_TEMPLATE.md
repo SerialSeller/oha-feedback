@@ -17,7 +17,7 @@ Expected
 [What should have happened.]
 
 Screenshot / clip
-[Attached filename(s), or an approved shareable link only when direct upload is unavailable.]
+[Not uploaded yet (current limitation). Evidence supplied: filename(s), if available.]
 
 Context (auto-filled if reported in-app):
 • App version: [value or Not available]
