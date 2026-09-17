@@ -42,7 +42,6 @@ oha-feedback/
     ├── FEEDBACK_TEMPLATE.md         Protected official template
     ├── USER_PREFERENCES.md          Per-teammate editable defaults
     ├── CLIENT_ADAPTERS.md           Claude/Codex/Gemini/ChatGPT notes
-    ├── INTAKE_BRIDGE.md             Optional shared no-script attachment transport
     └── EXAMPLES.md                  Splitting and evidence examples
 ```
 
@@ -53,7 +52,7 @@ oha-feedback/
    ```text
    https://github.com/SerialSeller/oha-feedback
    ```
-2. Connect Composio in that AI client and authorize the Trello and/or Linear account you use for OHA. If the team has enabled the managed intake bridge, use that shared path so screenshots arrive as real bytes; teammates do not run an uploader or paste local paths.
+2. Connect Composio in that AI client and authorize the Trello and/or Linear account you use for OHA.
 3. Review `references/USER_PREFERENCES.md`. Teammates may change those preferences freely.
 4. Ask the agent for a draft-only test:
 
@@ -108,8 +107,6 @@ Explicit invocation is optional. The description is intentionally specific, so s
 - Gemini CLI supports installation directly from the GitHub URL.
 
 Before a team rollout, test one draft and one explicitly approved test card. Verify the board/list, native attachment, and returned link. Delete or archive the test card only through the team's normal process.
-
-For the no-script phone/desktop workflow, the bridge owner must complete the private Cloudflare and Composio setup in [references/INTAKE_BRIDGE.md](references/INTAKE_BRIDGE.md) first. A client that exposes only a local filename or path is not an upload-capable client and must be reported as blocked instead of creating an unverified Trello attachment.
 
 ## Version
 
