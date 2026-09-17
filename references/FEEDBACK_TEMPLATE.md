@@ -17,7 +17,7 @@ Expected
 [What should have happened.]
 
 Screenshot / clip
-[Direct attachment or approved shareable link.]
+[Attached filename(s), or an approved shareable link only when direct upload is unavailable.]
 
 Context (auto-filled if reported in-app):
 • App version: [value or Not available]

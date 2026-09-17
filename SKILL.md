@@ -26,10 +26,11 @@ Read [references/CLIENT_ADAPTERS.md](references/CLIENT_ADAPTERS.md) only for ins
 4. Draft a concise factual title and fill the official template exactly. Keep unknown fields as `Not available`; never infer app version, device, OS, PostHog replay, Convex deploy, reproduction steps, severity, ownership, or cause.
 5. Classify each issue by observed behavior and resolve an exact existing Trello label. Do not create, rename, or approximate labels unless the user explicitly asks.
 6. Show a preview when the teammate preference or client requires confirmation. Otherwise create only in enabled, fully configured destinations.
-7. Attach or link the correct evidence. Prefer direct attachment when the destination supports it. Do not upload evidence to Google Drive or another third party without the user's approval. Never use a local file path as if it were a shareable link.
+7. Attach every mapped screenshot or clip to its matching card or issue. Prefer direct file upload. A description reference, filename, thumbnail analysis, or local path is not an attachment. Do not upload evidence to Google Drive or another third party without the user's approval.
 8. Before creating, search the configured destination for an obvious duplicate with the same behavior, area, and evidence. If found, return the existing link and ask before creating another.
 9. Execute each external write once. If the result is uncertain or times out, verify destination state before retrying. Never replay an uncertain write through a different Composio surface.
-10. Return a result for every issue: title, classification, destination, created link, and any attachment or missing-context limitation.
+10. Read the created item or its attachment list and verify each expected file is present. A destination item is complete only after this verification.
+11. Return a result for every issue: title, classification, destination, created link, and the filename or attachment result for every mapped screenshot or clip.
 
 ## Composio boundary
 
@@ -43,7 +44,9 @@ If a destination in `TEAM_CONFIG.md` is disabled, marked `NOT CONFIGURED`, ambig
 
 For a preview, present the number of detected issues and one complete template per issue, with its evidence and proposed exact label.
 
-After creation, return direct Trello/Linear links grouped by issue. Clearly distinguish `Created`, `Existing duplicate`, `Drafted only`, and `Blocked by setup`. Never claim an attachment, label, card, or issue exists unless the destination confirms it.
+After creation, return direct Trello/Linear links grouped by issue. Clearly distinguish `Created and attachment verified`, `Created but attachment failed`, `Existing duplicate`, `Drafted only`, and `Blocked by setup`. Never claim an attachment, label, card, or issue exists unless the destination confirms it.
+
+If a card or issue is created but an attachment fails, keep the confirmed item link, report the partial result, and retry only the attachment after checking the failure. Never create a duplicate item to recover from an attachment failure.
 
 ## Protected versus editable
 

@@ -49,7 +49,7 @@ Issue 1 — Created
 [UI] Back button has insufficient visual hierarchy
 Trello: https://trello.com/c/...
 Label: <exact confirmed board label>
-Evidence: screenshot-1 attached
+Evidence: screenshot-1.png attached and verified
 
 Issue 2 — Blocked by setup
 [Bug] Continue does not respond after team selection

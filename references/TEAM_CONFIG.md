@@ -24,9 +24,12 @@ Resolve the current IDs from the exact names before every write. Never fall back
 
 ## Evidence handling
 
-- Trello: prefer direct file attachment when the available Composio tool supports it.
-- Linear: use direct upload when supported; otherwise ask before placing the file in an approved shared store and attaching its access-controlled URL.
+- Evidence attachment is required for every screenshot or clip mapped to an issue.
+- Trello: upload the local file with the attachment operation, then read the card's attachment list and verify the filename is present.
+- Linear: use the prepare-upload → raw-byte upload → create-attachment sequence, then read the issue and verify the attachment is present.
+- If direct upload is unavailable, ask before placing the file in an approved shared store and attaching its access-controlled URL.
 - Never upload evidence to Google Drive or another third party silently.
+- Never treat a filename written in the description as a successful attachment.
 
 ## Destination safety
 

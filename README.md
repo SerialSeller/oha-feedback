@@ -1,18 +1,34 @@
 # OHA Feedback Skill
 
-A standalone, instruction-only skill for turning OHA screenshots, clips, and short notes into structured Trello or Linear feedback through Composio.
+A portable Agent Skill for turning screenshots, clips, and short notes into consistent, actionable OHA feedback in Trello and Linear through Composio.
 
-This package is separate from the paused Telegram bot. It has no bot code, server, webhook, deployment, or stored credentials.
+It gives Claude, Codex, Gemini, ChatGPT, and other compatible agents one shared feedback workflow while keeping client preferences editable for each teammate.
 
 ## What it does
 
 - Splits independent problems into separate issues.
 - Uses the official OHA Feedback Template v1.
-- Maps the right evidence to the right issue.
+- Maps the right evidence to the right issue and attaches every screenshot or clip to the matching card or issue.
 - Selects an exact existing Trello label without inventing one.
 - Creates only in verified OHA destinations enabled by the team.
 - Uses `Not available` for missing context.
-- Returns the created Trello/Linear links.
+- Verifies attachments after creation and returns the created Trello/Linear links.
+
+## Workflow
+
+```text
+Screenshots + short notes
+          ↓
+Detect independent problems
+          ↓
+Build one structured report per problem
+          ↓
+Create in Trello and/or Linear through Composio
+          ↓
+Attach the matching evidence and verify it
+          ↓
+Return the created links
+```
 
 ## Package layout
 
@@ -37,7 +53,7 @@ oha-feedback/
    ```text
    https://github.com/SerialSeller/oha-feedback
    ```
-2. Connect Composio in that AI client and authorize your own Trello account. Authorize Linear only after the real OHA Linear team is available to you.
+2. Connect Composio in that AI client and authorize the Trello and/or Linear account you use for OHA.
 3. Review `references/USER_PREFERENCES.md`. Teammates may change those preferences freely.
 4. Ask the agent for a draft-only test:
 
@@ -45,7 +61,7 @@ oha-feedback/
 
 5. After the preview is correct, ask it to create the cards in the configured destination.
 
-The current safe default is Trello only. Linear stays disabled until the real OHA destination is verified; the earlier `Oha test` workspace is not treated as production.
+The repository's safe default is Trello only. A team maintainer enables Linear after recording the verified OHA Linear destination in `TEAM_CONFIG.md`.
 
 ## What teammates may customize
 
@@ -96,10 +112,9 @@ Before a team rollout, test one draft and one explicitly approved test card. Ver
 
 ## Version
 
-Package: `1.0.0`
+Package: `1.0.1`
 
-Canonical sources used for this version:
+Default team configuration:
 
-- OHA Feedback Template v1 from the “Write Feedback Report” conversation.
-- Verified Trello destination: `OOOHA! - WORKSPACE` → `FEEDBACK & TESTING`.
-- Linear production destination: not yet verified, therefore disabled.
+- Trello: `OOOHA! - WORKSPACE` → `FEEDBACK & TESTING`
+- Linear: disabled until the official OHA team/project is configured
